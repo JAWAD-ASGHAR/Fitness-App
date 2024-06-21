@@ -39,10 +39,9 @@ const Header = () => {
       <div className="text-white flex items-center">
         {
           <ul className="flex gap-8">
-            {links.map((link) => (
-              <a href={link.route}>
+            {links.map((link) => (  
+              <a key={link.id} href={link.route}>
                 <li
-                  key={link.id}
                   className="text-white cursor-pointer hover:text-[#C1E503]"
                 >
                   {link.name}
