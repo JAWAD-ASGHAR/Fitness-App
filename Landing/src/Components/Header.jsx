@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { FaUnlock } from "react-icons/fa";
 
 const Header = () => {
+
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme])
+
+  const handleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  }
+
   const links = [
     {
       id: 1,
@@ -32,17 +47,17 @@ const Header = () => {
   ];
 
   return (
-    <div className="w-full bg-slate-800 h-20 flex items-center justify-around">
-      <div className="text-white font-bold text-4xl flex items-center">
+    <div className="w-full bg-[#EDEEF2] dark:bg-slate-800 h-20 flex items-center justify-around">
+      <div className="dark:text-white text-slate-800 font-bold text-4xl flex items-center cursor-pointer" onClick={handleTheme}>
         LOGO
       </div>
-      <div className="text-white flex items-center">
+      <div className="dark:text-white text-slate-800 flex items-center">
         {
           <ul className="flex gap-8">
             {links.map((link) => (  
               <a key={link.id} href={link.route}>
                 <li
-                  className="text-white cursor-pointer hover:text-[#C1E503]"
+                  className="dark:text-white text-slate-800 font-medium cursor-pointer hover:text-[#C1E503]"
                 >
                   {link.name}
                 </li>
@@ -52,7 +67,7 @@ const Header = () => {
         }
       </div>
       <div className="flex gap-10 items-center">
-        <Button icon={<FaUnlock />} className="text-white p-4">
+        <Button icon={<FaUnlock />} className="dark:text-white font-medium text-slate-800 p-4">
           Login
         </Button>
         <Button color="yellow" className="font-medium rounded-lg px-4">
