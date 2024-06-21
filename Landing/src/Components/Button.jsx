@@ -10,7 +10,7 @@ const Button = (props) => {
     <>
       {
         <button
-          className={`w-auto h-10 ${color} flex gap-2 items-center rounded-lg px-4 ${props.className}`}
+          className={`w-auto max-w-56 h-10 ${color} flex gap-2 justify-center items-center ${props.className}`}
         >
           {props.icon}
           {props.children}

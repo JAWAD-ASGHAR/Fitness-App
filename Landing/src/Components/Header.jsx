@@ -52,10 +52,10 @@ const Header = () => {
         }
       </div>
       <div className="flex gap-10 items-center">
-        <Button icon={<FaUnlock />} className="text-white">
+        <Button icon={<FaUnlock />} className="text-white p-4">
           Login
         </Button>
-        <Button color="yellow" className="font-medium">
+        <Button color="yellow" className="font-medium rounded-lg px-4">
           Start Free
         </Button>
       </div>

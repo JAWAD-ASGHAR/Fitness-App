@@ -3,7 +3,7 @@ import Button from "./Button";
 import Statistic from "./Statistic";
 
 const Home = () => {
-  const item = [
+  const stats = [
     {
       id: 1,
       main: "100+",
@@ -27,31 +27,23 @@ const Home = () => {
   ];
   return (
     <>
-      <div className="w-full">
-        <div className="bg-[url('../../public/Dark_Theme.svg')] bg-cover bg-no-repeat">
-          <div className="flex  text-white">
-            <div className=" w-2/4 p-24 ">
-              <div className="text-5xl font-bold flex flex-col text-left w-full ">
-                <span>Track</span>
-                <span>Your Progress</span>
+        <div className="w-full h-[1200px] bg-[url('../../public/Layers_night.svg')] bg-cover bg-no-repeat">
+        <div className="flex ">
+        <div className="flex flex-col px-36 pt-36">
+              <div className="text-white text-8xl font-semibold flex flex-col text-left w-full ">
+                <div>Track</div>
+                <div>Your Progress</div>
               </div>
-              <div className="my-14">
+              <p className="max-w-[30rem] mt-6 text-lg font-medium text-[#B8B8B8]">
                 Achieve Your Fitness Goals With Personalized Fitness Tracking,
-                Workouts and Nutrition Advice
-              </div>
-              <Button
-                className={
-                  "bg-white text-slate-800 my-6 rounded-full font-medium py-9 px-14"
-                }
-              >
-                Start For Free
-              </Button>
+                Workouts and Nutrition Advice.
+              </p>
+              <Button className={"bg-white text-slate-800 my-6 rounded-full font-medium px-14 py-7" } > Start For Free </Button>
+            <img src="../../public/White_Lady.svg" className="absolute top-52 right-0" />
             </div>
+            </div>
+            <Statistic stats={stats} className={"mt-32 py-16"} />
           </div>
-
-          <Statistic items={item} className={"py-16"} />
-        </div>
-      </div>
     </>
   );
 };
