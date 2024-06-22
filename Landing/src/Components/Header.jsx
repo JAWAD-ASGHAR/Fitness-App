@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
+import { useAuth0 } from "@auth0/auth0-react";
 import { FaUnlock } from "react-icons/fa";
 
 const Header = () => {
 
   const [theme, setTheme] = useState("light");
+
+  //use as per need
+  const { loginWithRedirect,  user, isAuthenticated, isLoading, logout} = useAuth0();
 
   useEffect(() => {
     if (theme === "dark") {
@@ -67,10 +71,10 @@ const Header = () => {
         }
       </div>
       <div className="flex gap-10 items-center">
-        <Button icon={<FaUnlock />} className="dark:text-white font-medium text-slate-800 p-4">
+        <Button icon={<FaUnlock />}  onClick={() => loginWithRedirect()} className="dark:text-white font-medium text-slate-800 p-4">
           Login
         </Button>
-        <Button color="yellow" className="font-medium rounded-lg px-4">
+        <Button color="yellow" onClick={() => loginWithRedirect()} className="font-medium rounded-lg px-4">
           Start Free
         </Button>
       </div>
