@@ -1,17 +1,14 @@
-import Header from "./components/Header";
-import SideBar from "./components/SideBar";
-import Statistics from "./components/Statistics";
+import { useAuth0 } from "@auth0/auth0-react";
+import DashboardBody from "./Pages/DashboardBody";
+import LandingPageBody from "./Pages/LandingPageBody";
 
 function App() {
+
+  const { loginWithRedirect,  user, isAuthenticated, isLoading, logout} = useAuth0();
+
   return (
     <>
-      <div className="flex">
-        <SideBar />
-        <div className="w-full">
-          <Header />
-          <Statistics />
-        </div>
-      </div>
+      {isAuthenticated ? <DashboardBody/> : <LandingPageBody/>}
     </>
   );
 }

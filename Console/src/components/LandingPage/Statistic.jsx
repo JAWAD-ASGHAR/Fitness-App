@@ -1,5 +1,5 @@
 import React from "react";
-import StatisticsCards from "./StatisticsCards";
+import StatisticsCards from "./StatisticsCards.jsx";
 
 const Statistic = (props) => {
   return (
