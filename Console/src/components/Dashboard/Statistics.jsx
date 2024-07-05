@@ -37,7 +37,7 @@ const Statistics = () => {
   ];
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-center p-11 gap-11">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 justify-center my-11 mx-6 gap-2">
         {PersonalRecord.map((record) => (
           <StatisticsCards key={record.id} details={record} />
         ))}

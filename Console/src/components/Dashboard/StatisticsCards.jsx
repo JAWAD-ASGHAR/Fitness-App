@@ -3,7 +3,7 @@ import { HiDotsVertical } from "react-icons/hi";
 const StatisticsCards = (props) => {
   return (
     <>
-      <div className=" bg-slate-100 px-8 py-4 rounded-lg">
+      <div className=" bg-slate-100 p-4 rounded-lg">
         <div className="flex justify-between space-x-7">
           <div className="flex flex-col space-y-2 w-2/3">
             <div className="text-lg font-semibold">{props.details.title}</div>

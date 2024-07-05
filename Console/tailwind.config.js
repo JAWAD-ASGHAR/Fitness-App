@@ -1,13 +1,14 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  darkMode: 'class',
+module.exports = {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        xs: "480px", // Custom screen size
+        xl: "1000px", // Custom screen size
+      },
+    },
   },
   plugins: [],
-}
-
+};
