@@ -1,30 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "./Button";
 import Statistic from "./Statistic";
+import { ThemeContext } from "../../store/ThemeStore";
 
-const useTheme = () => {
-  const [theme, setTheme] = useState(document.documentElement.classList.contains("dark"));
+// const useTheme = () => {
+//   const [theme, setTheme] = useState(
+//     document.documentElement.classList.contains("dark")
+//   );
 
-  useEffect(() => {
-    const themeChangeHandler = () => {
-      setTheme(document.documentElement.classList.contains("dark"));
-    };
+//   useEffect(() => {
+//     const themeChangeHandler = () => {
+//       setTheme(document.documentElement.classList.contains("dark"));
+//     };
 
-    const observer = new MutationObserver(themeChangeHandler);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+//     const observer = new MutationObserver(themeChangeHandler);
+//     observer.observe(document.documentElement, {
+//       attributes: true,
+//       attributeFilter: ["class"],
+//     });
 
-    // Cleanup observer on component unmount
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+//     // Cleanup observer on component unmount
+//     return () => {
+//       observer.disconnect();
+//     };
+//   }, []);
 
-  return theme;
-};
+//   return theme;
+// };
 
 const Home = () => {
-  const theme = useTheme();
-
+  // const theme = useTheme();
+  const { theme } = useContext(ThemeContext);
   const stats = [
     {
       id: 1,
@@ -61,13 +67,25 @@ const Home = () => {
               Achieve Your Fitness Goals With Personalized Fitness Tracking,
               Workouts and Nutrition Advice.
             </p>
-            <Button className={"text-white bg-slate-800 dark:bg-white dark:text-slate-800 my-6 rounded-full font-medium px-14 py-7"}>
+            <Button
+              className={
+                "text-white bg-slate-800 dark:bg-white dark:text-slate-800 my-6 rounded-full font-medium px-14 py-7"
+              }
+            >
               Start For Free
             </Button>
-            {theme ? (
-              <img src="../../public/White_Lady.svg" className="absolute top-52 right-0" alt="White Lady" />
+            {theme == "dark" ? (
+              <img
+                src="../../public/White_Lady.svg"
+                className="absolute top-52 right-0"
+                alt="White Lady"
+              />
             ) : (
-              <img src="../../public/Black_Lady.svg" className="absolute top-52 right-0" alt="Black Lady" />
+              <img
+                src="../../public/Black_Lady.svg"
+                className="absolute top-52 right-0"
+                alt="Black Lady"
+              />
             )}
           </div>
         </div>

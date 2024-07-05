@@ -1,18 +1,26 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import DashboardBody from "./Pages/DashboardBody";
 import LandingPageBody from "./Pages/LandingPageBody";
-import { ThemeContext } from "./store/theme";
+import LoaderPageBody from "./Pages/LoaderPageBody";
+import ThemeContextProvider, { ThemeContext } from "./store/ThemeStore";
+import { useState } from "react";
 
 function App() {
   const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
     useAuth0();
-  const [theme, setTheme] = useState("light");
+  if (isLoading) {
+    return (
+      <>
+        <LoaderPageBody />
+      </>
+    );
+  }
 
   return (
     <>
-      <ThemeContext.Provider value={theme}>
+      <ThemeContextProvider>
         {isAuthenticated ? <DashboardBody /> : <LandingPageBody />};
-      </ThemeContext.Provider>
+      </ThemeContextProvider>
     </>
   );
 }

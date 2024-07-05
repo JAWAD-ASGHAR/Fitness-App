@@ -17,10 +17,11 @@ const Header = () => {
               className="rounded-full w-9 h-9"
               src="https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg"
             />
+
             <img
               onClick={logout}
               className="rounded-full w-9 h-9 cursor-pointer"
-              src={user.picture}
+              src={""}
             />
           </div>
         </div>
