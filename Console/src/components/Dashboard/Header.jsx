@@ -21,7 +21,7 @@ const Header = () => {
             <img
               onClick={logout}
               className="rounded-full w-9 h-9 cursor-pointer"
-              src={""}
+              src={user.picture}
             />
           </div>
         </div>

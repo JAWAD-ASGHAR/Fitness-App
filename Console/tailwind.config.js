@@ -6,7 +6,7 @@ module.exports = {
     extend: {
       screens: {
         xs: "480px", // Custom screen size
-        xl: "1000px", // Custom screen size
+        xl: "1150px", // Custom screen size
       },
     },
   },

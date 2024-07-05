@@ -174,7 +174,7 @@ const Statistics = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-center p-11 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 justify-center p-11 gap-2">
         {cardStructure.map((card) => (
           <StatisticsCards
             key={card.id}
