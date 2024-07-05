@@ -4,7 +4,7 @@ import LandingPageBody from "./Pages/LandingPageBody";
 
 function App() {
 
-  const { loginWithRedirect,  user, isAuthenticated, isLoading, logout} = useAuth0();
+  const {isAuthenticated} = useAuth0();
 
   return (
     <>
