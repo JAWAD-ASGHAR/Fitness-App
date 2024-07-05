@@ -8,7 +8,7 @@ const Header = () => {
   const [theme, setTheme] = useState("light");
 
   //use as per need
-  const { loginWithRedirect,  user, isAuthenticated, isLoading, logout} = useAuth0();
+  const {loginWithRedirect} = useAuth0();
 
   useEffect(() => {
     if (theme === "dark") {
