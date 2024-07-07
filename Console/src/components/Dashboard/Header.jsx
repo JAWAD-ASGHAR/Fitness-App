@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MdOutlineNotifications } from "react-icons/md";
-import { AiOutlineClose } from "react-icons/ai"; 
+import { AiOutlineClose } from "react-icons/ai";
 import { IoLogOutOutline } from "react-icons/io5";
 import { useAuth0 } from "@auth0/auth0-react";
-
+import { ThemeContext } from "../../store/ThemeStore";
+import { GoSun } from "react-icons/go";
+import { RiMoonLine } from "react-icons/ri";
 const Header = () => {
-  const { loginWithRedirect, user, isAuthenticated, isLoading, logout } = useAuth0();
+  const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
+    useAuth0();
   const [logoutOpen, setLogoutOpen] = useState(false);
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
+  const handleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   const Dialog = ({ isOpen, onClose, children }) => {
     if (!isOpen) return null;
@@ -37,15 +53,15 @@ const Header = () => {
 
   return (
     <>
-      <div className="w-full">
-        <div className="flex justify-between w-full px-14 py-3">
+      <div className="w-full dark:bg-[#282828] ">
+        <div className="flex justify-between w-full px-14 py-3 dark:text-slate-100">
           <div className="font-bold text-2xl">Dashboard</div>
           <div className="flex space-x-5">
             <MdOutlineNotifications className="w-9 h-9" />
-            <img
-              className="rounded-full w-9 h-9"
-              src="https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg"
-            />
+            <div className="cursor-pointer" onClick={handleTheme}>
+              {theme == "light" && <GoSun className="w-9 h-9" />}
+              {theme == "dark" && <RiMoonLine className="w-9 h-9" />}
+            </div>
             {isAuthenticated && user && (
               <img
                 onClick={() => setLogoutOpen(true)}
@@ -57,7 +73,7 @@ const Header = () => {
           </div>
         </div>
         <center>
-          <hr className=" w-11/12 " />
+          <hr className=" w-11/12 dark:border-gray-500" />
         </center>
       </div>
       {logoutOpen && (

@@ -4,7 +4,6 @@ import Statistic from "./Statistic";
 import { ThemeContext } from "../../store/ThemeStore";
 
 const Home = () => {
-  // const theme = useTheme();
   const { theme } = useContext(ThemeContext);
   const stats = [
     {
