@@ -2,6 +2,7 @@ import React from "react";
 import StatisticsCards from "./StatisticsCards.jsx";
 
 const Statistic = (props) => {
+  console.log(props);
   return (
     <>
       <div

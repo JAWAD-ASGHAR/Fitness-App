@@ -6,7 +6,7 @@ import { TbWeight } from "react-icons/tb";
 import { HiDotsVertical } from "react-icons/hi";
 import { FiTrash2 } from "react-icons/fi";
 import { GrAdd } from "react-icons/gr";
-import { AiOutlineClose } from "react-icons/ai"; // Import close icon
+import { AiOutlineClose } from "react-icons/ai";
 
 const StatisticsCards = ({ details, handleRemove }) => {
   const [open, setOpen] = useState(false);
