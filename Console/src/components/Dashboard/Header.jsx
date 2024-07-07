@@ -1,15 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MdOutlineNotifications } from "react-icons/md";
+import { ThemeContext } from "../../store/ThemeStore";
+import { GoSun } from "react-icons/go";
+import { RiMoonLine } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
 import { IoLogOutOutline } from "react-icons/io5";
 import { useAuth0 } from "@auth0/auth0-react";
 import { TbPointFilled } from "react-icons/tb";
 
 const Header = (props) => {
-  const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
+  const { user, isAuthenticated, logout } =
     useAuth0();
   const [logoutOpen, setLogoutOpen] = useState(false);
+  const { theme, setTheme } = useContext(ThemeContext);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
+  const handleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   const notifications = [
     "Great job! You've completed your workout for today.",
@@ -21,9 +37,8 @@ const Header = (props) => {
     "Don't forget to log your meals for today.",
     "Join the 30-day fitness challenge and stay motivated!",
     "Your friend just beat your record in the 5K run. Can you top it?",
-    "Tip of the day: Warm up before your workout to prevent injuries."
+    "Tip of the day: Warm up before your workout to prevent injuries.",
   ];
-  
 
   const Dialog = ({ isOpen, onClose, children }) => {
     if (!isOpen) return null;
@@ -84,12 +99,12 @@ const Header = (props) => {
   };
   return (
     <>
-      <div className="w-full">
-        <div className="flex justify-between w-full px-14 py-3">
+      <div className="w-full dark:bg-[#282828] ">
+        <div className="flex justify-between w-full px-14 py-3 dark:text-slate-100">
           <div className="font-bold text-2xl">{props.title}</div>
           <div className="flex space-x-5 relative">
             <MdOutlineNotifications
-              className="w-9 h-9 cursor-pointer rounded-full hover:bg-slate-200"
+              className="w-9 h-9 rounded-full hover:bg-slate-200"
               onClick={() => setNotificationsOpen(!notificationsOpen)}
             />
             <NotificationDropdown
@@ -97,10 +112,10 @@ const Header = (props) => {
               notifications={notifications}
               onClose={() => setNotificationsOpen(false)}
             />
-            <img
-              className="rounded-full w-9 h-9"
-              src="https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg"
-            />
+            <div className="cursor-pointer" onClick={handleTheme}>
+              {theme == "light" && <GoSun className="w-9 h-9" />}
+              {theme == "dark" && <RiMoonLine className="w-9 h-9" />}
+            </div>
             {isAuthenticated && user && (
               <img
                 onClick={() => setLogoutOpen(true)}
@@ -112,7 +127,7 @@ const Header = (props) => {
           </div>
         </div>
         <center>
-          <hr className="w-11/12 border-gray-300" />
+          <hr className=" w-11/12 dark:border-gray-500" />
         </center>
       </div>
       <Dialog isOpen={logoutOpen} onClose={() => setLogoutOpen(false)} />

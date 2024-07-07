@@ -10,14 +10,13 @@ import { AiOutlineClose } from "react-icons/ai";
 
 const StatisticsCards = ({ details, handleRemove }) => {
   const [open, setOpen] = useState(false);
-
   function handleDropDown() {
     setOpen((prevOpen) => !prevOpen);
   }
 
   return (
     <>
-      <div className="bg-slate-100 px-8 py-4 rounded-lg relative">
+      <div className="bg-slate-100 px-8 py-4 rounded-lg relative dark:bg-[#2C2D31] dark:text-slate-100">
         <div className="flex justify-between space-x-7">
           <div className="flex flex-col space-y-2 w-2/3">
             <div className="text-lg font-semibold">{details.title}</div>
