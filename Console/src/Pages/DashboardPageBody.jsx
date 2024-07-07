@@ -4,7 +4,9 @@ import Statistics from "../components/Dashboard/Statistics";
 const DashboardBody = () => {
   return (
     <>
-      <Statistics />
+      <div className="h-screen  dark:bg-[#282828]">
+        <Statistics />
+      </div>
     </>
   );
 };

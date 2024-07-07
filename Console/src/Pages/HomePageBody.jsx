@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SideBar from "../components/Dashboard/SideBar";
 import Header from "../components/Dashboard/Header";
 import DashboardBody from "./DashboardPageBody";
@@ -6,13 +6,14 @@ import ProgressBody from "./ProgressBody";
 import TargetPageBody from "./TargetPageBody";
 import AlertPageBody from "./AlertPageBody";
 import SettingsPageBody from "./SettingsPageBody";
+import { ThemeContext } from "../store/ThemeStore";
 
 const HomeBody = () => {
-  const [active, setActive] = useState("Home");
+  const [active, setActive] = useState("Dashboard");
 
   const renderBody = () => {
     switch (active) {
-      case "Home":
+      case "Dashboard":
         return <DashboardBody />;
       case "Progress":
         return <ProgressBody />;
@@ -31,7 +32,7 @@ const HomeBody = () => {
     <div className="flex">
       <SideBar active={active} setActive={setActive} />
       <div className="w-full">
-        <Header />
+        <Header title={active} />
         {renderBody()}
       </div>
     </div>
