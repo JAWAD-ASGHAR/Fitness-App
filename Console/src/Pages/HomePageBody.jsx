@@ -8,11 +8,11 @@ import AlertPageBody from "./AlertPageBody";
 import SettingsPageBody from "./SettingsPageBody";
 
 const HomeBody = () => {
-  const [active, setActive] = useState("Home");
+  const [active, setActive] = useState("Dashboard");
 
   const renderBody = () => {
     switch (active) {
-      case "Home":
+      case "Dashboard":
         return <DashboardBody />;
       case "Progress":
         return <ProgressBody />;
@@ -31,7 +31,7 @@ const HomeBody = () => {
     <div className="flex">
       <SideBar active={active} setActive={setActive} />
       <div className="w-full">
-        <Header />
+        <Header title={active} />
         {renderBody()}
       </div>
     </div>

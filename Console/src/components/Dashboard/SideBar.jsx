@@ -14,14 +14,14 @@ const SideBar = ({ active, setActive }) => {
 
   return (
     <div className="w-24 py-5 h-screen bg-slate-200 flex flex-col justify-between items-center">
-      <button onClick={() => handleButtonClick("Cube")}>
+      <button onClick={() => handleButtonClick("Dashboard")}>
         <GrCube className={"w-9 h-9"} />
       </button>
       <div className="bg-slate-300 rounded-full py-3 px-2 justify-center items-center flex flex-col space-y-6">
         <button
-          onClick={() => handleButtonClick("Home")}
+          onClick={() => handleButtonClick("Dashboard")}
           className={`rounded-full p-2 flex items-center justify-center ${
-            active === "Home" ? "bg-lime-400" : ""
+            active === "Dashboard" ? "bg-lime-400" : ""
           }`}
         >
           <MdHomeFilled className="w-7 h-7 hover:scale-110" />
