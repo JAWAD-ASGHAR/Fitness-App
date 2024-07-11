@@ -13,7 +13,7 @@ const SideBar = ({ active, setActive }) => {
   };
 
   return (
-    <div className="w-24 py-5 h-screen bg-slate-200 flex flex-col justify-between items-center dark:bg-[#161313] dark:text-slate-100">
+    <div className="w-24 py-5 h-screen bg-slate-200 flex flex-col justify-between items-center dark:bg-[#161313] dark:text-slate-100 transition-all duration-500">
       <button onClick={() => handleButtonClick("Dashboard")}>
         <GrCube className={"w-9 h-9"} />
       </button>
