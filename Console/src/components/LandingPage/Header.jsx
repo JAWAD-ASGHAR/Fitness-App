@@ -48,9 +48,9 @@ const Header = () => {
   ];
 
   return (
-    <div className="w-full bg-[#EDEEF2] dark:bg-slate-800 h-20 flex items-center justify-around">
+    <div className="w-full bg-[#EDEEF2] dark:bg-slate-800 h-20 flex items-center justify-around ">
       <div
-        className="dark:text-white text-slate-800 font-bold text-4xl flex items-center cursor-pointer"
+        className="dark:text-white text-slate-800 font-bold text-4xl flex items-center cursor-pointer "
         onClick={handleTheme}
       >
         LOGO

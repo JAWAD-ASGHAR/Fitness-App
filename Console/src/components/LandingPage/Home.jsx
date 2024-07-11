@@ -32,7 +32,7 @@ const Home = () => {
     <>
       <div className="w-full h-[1200px] bg-[url('../../public/Layers_day.svg')] dark:bg-[url('../../public/Layers_night.svg')] bg-cover bg-no-repeat">
         <div className="flex">
-          <div className="flex flex-col px-36 pt-36">
+          <div className="flex flex-col px-36 pt-36 ">
             <div className="dark:text-white text-slate-800 text-8xl font-semibold flex flex-col text-left w-full">
               <div>Track</div>
               <div>Your Progress</div>

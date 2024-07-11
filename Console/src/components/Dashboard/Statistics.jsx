@@ -16,7 +16,7 @@ const StatisticsCards = ({ details, handleRemove }) => {
 
   return (
     <>
-      <div className="bg-slate-100 px-8 py-4 rounded-lg relative dark:bg-[#2C2D31] dark:text-slate-100">
+      <div className="bg-slate-100 px-8 py-4 rounded-lg relative dark:bg-[#2C2D31] dark:text-slate-100 transition-all duration-500">
         <div className="flex justify-between space-x-7">
           <div className="flex flex-col space-y-2 w-2/3">
             <div className="text-lg font-semibold">{details.title}</div>
@@ -173,7 +173,7 @@ const Statistics = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 justify-center p-11 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 justify-center p-11 gap-2 ">
         {cardStructure.map((card) => (
           <StatisticsCards
             key={card.id}
