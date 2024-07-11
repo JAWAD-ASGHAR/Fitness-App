@@ -6,7 +6,6 @@ import ProgressBody from "./ProgressBody";
 import TargetPageBody from "./TargetPageBody";
 import AlertPageBody from "./AlertPageBody";
 import SettingsPageBody from "./SettingsPageBody";
-import { ThemeContext } from "../store/ThemeStore";
 
 const HomeBody = () => {
   const [active, setActive] = useState("Dashboard");
