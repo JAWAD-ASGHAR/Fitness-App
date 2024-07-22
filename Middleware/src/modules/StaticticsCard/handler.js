@@ -2,7 +2,7 @@ const router = require("express").Router();
 const StaticticsCard = require("./model");
 const { StatisticRepository } = require("./repository");
 
-const STATICTICS_API_ROUTE_GROUP = "/api/campaigns";
+const STATICTICS_API_ROUTE_GROUP = "/campaigns";
 router.get("/getData", async (req, res) => {
   try {
     const data = await StatisticRepository.getData();
