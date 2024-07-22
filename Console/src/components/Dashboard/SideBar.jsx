@@ -1,41 +1,68 @@
-import React from "react";
-import { RiHome2Fill } from "react-icons/ri";
-import { TfiTarget } from "react-icons/tfi";
-import { FaRegBell } from "react-icons/fa";
-import { MdOutlineSettings } from "react-icons/md";
-import { BiSolidUser } from "react-icons/bi";
+import React, { useState } from "react";
+import { MdHomeFilled } from "react-icons/md";
 import { GrCube } from "react-icons/gr";
-import { GoGraph } from "react-icons/go";
-const SideBar = () => {
-  return (
-    <>
-      <div className="w-24 py-5 h-screen bg-slate-200 flex flex-col justify-between items-center">
-        <div>
-          <GrCube className="w-9 h-9" />
-        </div>
-        <div className="bg-slate-300 rounded-3xl p-2 flex flex-col space-y-3">
-          <div className="rounded-full bg-green-300 p-1">
-            <RiHome2Fill className="w-7 h-7" />
-          </div>
-          <div className="rounded-full p-1">
-            <GoGraph className="w-7 h-7 rounded-full" />
-          </div>
-          <div className="rounded-full p-1">
-            <TfiTarget className="w-7 h-7 rounded-full" />
-          </div>
-          <div className="rounded-full p-1">
-            <FaRegBell className="w-7 h-7 rounded-full" />
-          </div>
-          <div className="rounded-full p-1">
-            <MdOutlineSettings className="w-7 h-7 rounded-full" />
-          </div>
-        </div>
+import { SiTarget } from "react-icons/si";
+import { IoMdSettings } from "react-icons/io";
+import { SiProgress } from "react-icons/si";
+import { HiBellAlert } from "react-icons/hi2";
+import { FaCircleUser } from "react-icons/fa6";
 
-        <div className="w-9 h-9 rounded-full border-solid border-slate-950 border-2 flex items-center justify-center ">
-          <BiSolidUser className="w-9 h-9 rounded-full " />
-        </div>
+const SideBar = ({ active, setActive }) => {
+  const handleButtonClick = (buttonName) => {
+    setActive(buttonName);
+  };
+
+  return (
+    <div className="w-24 py-5 h-screen bg-slate-200 flex flex-col justify-between items-center dark:bg-[#161313] dark:text-slate-100 transition-all duration-500">
+      <button onClick={() => handleButtonClick("Dashboard")}>
+        <GrCube className={"w-9 h-9"} />
+      </button>
+      <div className="bg-slate-300 dark:bg-[#2C2D31] rounded-full py-3 px-2 justify-center items-center flex flex-col space-y-6">
+        <button
+          onClick={() => handleButtonClick("Dashboard")}
+          className={`rounded-full p-2 flex items-center justify-center ${
+            active === "Dashboard" ? "bg-lime-400  text-slate-900" : ""
+          }`}
+        >
+          <MdHomeFilled className="w-7 h-7 hover:scale-110" />
+        </button>
+        <button
+          onClick={() => handleButtonClick("Progress")}
+          className={`rounded-full p-2 flex items-center justify-center ${
+            active === "Progress" ? "bg-lime-400 text-slate-900" : ""
+          }`}
+        >
+          <SiProgress className="w-6 h-6 rounded-full hover:scale-110" />
+        </button>
+        <button
+          onClick={() => handleButtonClick("Target")}
+          className={`rounded-full p-2 flex items-center justify-center ${
+            active === "Target" ? "bg-lime-400 text-slate-900" : ""
+          }`}
+        >
+          <SiTarget className="w-6 h-6 rounded-full hover:scale-110" />
+        </button>
+        <button
+          onClick={() => handleButtonClick("Alert")}
+          className={`rounded-full p-2 flex items-center justify-center ${
+            active === "Alert" ? "bg-lime-400 text-slate-900" : ""
+          }`}
+        >
+          <HiBellAlert className="w-[1.7rem] h-[1.7rem] hover:scale-110" />
+        </button>
+        <button
+          onClick={() => handleButtonClick("Settings")}
+          className={`rounded-full p-2 flex items-center justify-center ${
+            active === "Settings" ? "bg-lime-400 text-slate-900" : ""
+          }`}
+        >
+          <IoMdSettings className="mt-[-2px] w-7 h-7 hover:scale-110" />
+        </button>
       </div>
-    </>
+      <button className="w-9 h-9 rounded-full flex items-center justify-center">
+        <FaCircleUser className="w-8 h-8" />
+      </button>
+    </div>
   );
 };
 

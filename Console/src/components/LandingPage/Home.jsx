@@ -4,7 +4,6 @@ import Statistic from "./Statistic";
 import { ThemeContext } from "../../store/ThemeStore";
 
 const Home = () => {
-  // const theme = useTheme();
   const { theme } = useContext(ThemeContext);
   const stats = [
     {
@@ -31,9 +30,9 @@ const Home = () => {
 
   return (
     <>
-      <div className="w-full h-[1200px] bg-[url('../../public/Layers_day.svg')] dark:bg-[url('../../public/Layers_night.svg')] bg-cover bg-no-repeat">
+      <div className="w-full h-[1200px] bg-[url('/Layers_day.svg')] dark:bg-[url('/Layers_night.svg')] bg-cover bg-no-repeat">
         <div className="flex">
-          <div className="flex flex-col px-36 pt-36">
+          <div className="flex flex-col px-36 pt-36 ">
             <div className="dark:text-white text-slate-800 text-8xl font-semibold flex flex-col text-left w-full">
               <div>Track</div>
               <div>Your Progress</div>
@@ -51,13 +50,13 @@ const Home = () => {
             </Button>
             {theme == "dark" ? (
               <img
-                src="../../public/White_Lady.svg"
+                src="/White_Lady.svg"
                 className="absolute top-52 right-0"
                 alt="White Lady"
               />
             ) : (
               <img
-                src="../../public/Black_Lady.svg"
+                src="/Black_Lady.svg"
                 className="absolute top-52 right-0"
                 alt="Black Lady"
               />

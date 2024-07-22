@@ -1,8 +1,9 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import DashboardBody from "./Pages/DashboardBody";
+import DashboardBody from "./Pages/DashboardPageBody";
 import LandingPageBody from "./Pages/LandingPageBody";
 import LoaderPageBody from "./Pages/LoaderPageBody";
 import ThemeContextProvider, { ThemeContext } from "./store/ThemeStore";
+import HomeBody from "./Pages/HomePageBody";
 
 function App() {
   const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
@@ -18,7 +19,7 @@ function App() {
   return (
     <>
       <ThemeContextProvider>
-        {isAuthenticated ? <DashboardBody /> : <LandingPageBody />};
+        {isAuthenticated ? <HomeBody /> : <LandingPageBody />};
       </ThemeContextProvider>
     </>
   );

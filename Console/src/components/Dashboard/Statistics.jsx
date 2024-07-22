@@ -6,18 +6,17 @@ import { TbWeight } from "react-icons/tb";
 import { HiDotsVertical } from "react-icons/hi";
 import { FiTrash2 } from "react-icons/fi";
 import { GrAdd } from "react-icons/gr";
-import { AiOutlineClose } from "react-icons/ai"; // Import close icon
+import { AiOutlineClose } from "react-icons/ai";
 
 const StatisticsCards = ({ details, handleRemove }) => {
   const [open, setOpen] = useState(false);
-
   function handleDropDown() {
     setOpen((prevOpen) => !prevOpen);
   }
 
   return (
     <>
-      <div className="bg-slate-100 px-8 py-4 rounded-lg relative">
+      <div className="bg-slate-100 px-8 py-4 rounded-lg relative dark:bg-[#2C2D31] dark:text-slate-100 transition-all duration-500">
         <div className="flex justify-between space-x-7">
           <div className="flex flex-col space-y-2 w-2/3">
             <div className="text-lg font-semibold">{details.title}</div>
@@ -31,12 +30,13 @@ const StatisticsCards = ({ details, handleRemove }) => {
               onClick={handleDropDown}
             />
             {open && (
-              <div className="absolute top-24 right-0 bg-white shadow-lg rounded-lg py-1 w-32">
+              <div className="absolute top-24 right-0 bg-white dark:bg-gray-700 shadow-lg rounded-lg py-1 w-32">
                 <div
-                  className="px-4 flex items-center gap-2 py-2 hover:bg-gray-200 cursor-pointer"
+                  className="px-4 flex items-center gap-2 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 cursor-pointer"
                   onClick={() => handleRemove(details.id)}
                 >
-                  <FiTrash2 /> remove
+                  <FiTrash2 className="dark:text-slate-100" />
+                  <span className="dark:text-slate-100">remove</span>
                 </div>
               </div>
             )}
@@ -47,16 +47,16 @@ const StatisticsCards = ({ details, handleRemove }) => {
   );
 };
 
-const Dialog = ({ isOpen, onClose, children, uniqueKeys, addCard }) => {
+const Dialog = ({ isOpen, onClose, uniqueKeys, addCard }) => {
   if (!isOpen) return null;
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-5 rounded-lg w-72 relative">
+      <div className="bg-white dark:bg-[#2C2D31] dark:text-slate-100 p-5 rounded-lg w-72 relative">
         <div className="flex flex-col h-full justify-between gap-2">
           <div className="flex justify-between">
             <h5 className="mb-5 font-semibold">Manage Cards</h5>
             <button
-              className="text-xl absolute top-6 right-7 hover:bg-gray-200 rounded-full"
+              className="text-xl absolute top-6 right-7 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full"
               onClick={onClose}
             >
               <AiOutlineClose />
@@ -66,7 +66,7 @@ const Dialog = ({ isOpen, onClose, children, uniqueKeys, addCard }) => {
           {uniqueKeys.map((card) => (
             <button
               key={card.id}
-              className="px-5 py-4 bg-gray-200 hover:bg-gray-300 w-full rounded text-left flex items-center gap-2"
+              className="px-5 py-4 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 w-full rounded text-left flex items-center gap-2"
               onClick={() => addCard(card.id)}
             >
               {card.icon}
@@ -174,7 +174,7 @@ const Statistics = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 justify-center p-11 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 justify-center p-11 gap-2 ">
         {cardStructure.map((card) => (
           <StatisticsCards
             key={card.id}
