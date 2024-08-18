@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const StaticticsCardSchema = new Schema(
+const StatisticsCardSchema = new Schema(
   {
     UserName: {
       type: String,
@@ -45,4 +45,4 @@ const StaticticsCardSchema = new Schema(
   }
 );
 
-module.exports = mongoose.model("staticticscard", StaticticsCardSchema);
+module.exports = mongoose.model("statisticsCard", StatisticsCardSchema);
