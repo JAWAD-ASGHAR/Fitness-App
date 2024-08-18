@@ -7,7 +7,10 @@ const Header = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const { loginWithRedirect } = useAuth0();
 
-  useEffect(() => {
+//  const data = fetch("/api/campaigns/getData").then((data) => {return data.json();});
+//  console.log(data);
+  
+useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
