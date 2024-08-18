@@ -1,11 +1,10 @@
 const router = require("express").Router();
-const StaticticsCard = require("./model");
-const { StatisticRepository } = require("./repository");
+const { StatisticServices } = require("./services");
 
 const STATICTICS_API_ROUTE_GROUP = "/campaigns";
 router.get("/getData", async (req, res) => {
   try {
-    const data = await StatisticRepository.getData();
+    const data = await StatisticServices.getData();
     res.send(data);
   } catch (error) {
     res.send(error);
@@ -15,7 +14,7 @@ router.get("/getData", async (req, res) => {
 router.get("/getData/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const data = await StatisticRepository.getDataById(id);
+    const data = await StatisticServices.getDataById(id);
     res.send(data);
   } catch (error) {
     res.send(error);
@@ -26,7 +25,7 @@ router.post("/add/data", async (req, res) => {
   try {
     const body = req.body;
     console.log(body);
-    const data = await StatisticRepository.addData(body);
+    const data = await StatisticServices.addData(body);
     res.send(data);
   } catch (error) {
     res.send(error);
@@ -37,7 +36,7 @@ router.put("/update/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const body = req.body;
-    const data = await StatisticRepository.updateData(id, body);
+    const data = await StatisticServices.updateData(id, body);
     res.send(data);
   } catch (error) {
     res.send(error);
@@ -47,7 +46,7 @@ router.put("/update/:id", async (req, res) => {
 router.delete("/delete/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const data = await StatisticRepository.deleteData(id);
+    const data = await StatisticServices.deleteData(id);
     res.send(data);
   } catch (error) {
     res.send(error);
